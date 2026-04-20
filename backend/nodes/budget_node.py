@@ -62,7 +62,7 @@ def budget_node(state: BajaState):
         print("⚠️ Skipping budget (already exists)")
         return {
             **state,
-            "budget": memory.get("budget")  # ✅ rehydrate
+            "budget": memory.get("budget")  
         }
 
     travel = state.get("travel", {})
@@ -95,7 +95,7 @@ def budget_node(state: BajaState):
         budget_data = {}
 
     return {
-        **state,  # ✅ preserve everything
+        **state,  
         "messages": state.get("messages", []) + [
             {"role": "assistant", "content": raw_output}
         ],

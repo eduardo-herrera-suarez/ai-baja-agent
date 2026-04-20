@@ -54,7 +54,7 @@ def classify_intent(state: BajaState):
 
     else:
         # =========================
-        # 🤖 LLM FALLBACK (RARE)
+        # LLM FALLBACK (RARE)
         # =========================
         try:
             response = chain.invoke({
@@ -71,7 +71,7 @@ def classify_intent(state: BajaState):
             detected_intent = content.strip().lower()
 
         except Exception as e:
-            # 🔥 FAILSAFE (NO LLM = NO CRASH)
+            # FAILSAFE (NO LLM = NO CRASH)
             print("⚠️ LLM classification failed, defaulting to trip_planner:", e)
             detected_intent = "trip_planner"
 

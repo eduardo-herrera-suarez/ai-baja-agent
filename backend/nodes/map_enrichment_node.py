@@ -63,7 +63,6 @@ def map_enrichment_node(state: BajaState):
     total_duration = 0
     segments = []
 
-    # 🔥 NEW
     route_failed = False
     failed_segments = []
 
@@ -91,7 +90,7 @@ def map_enrichment_node(state: BajaState):
             route = get_route(start_coords, end_coords)
             print("DEBUG ROUTE:", route)
 
-            # ✅ HANDLE ERROR
+            # HANDLE ERROR
             if route.get("error"):
                 route_failed = True
 
@@ -105,11 +104,11 @@ def map_enrichment_node(state: BajaState):
                 segments.append(error_data)
                 continue
 
-            # ✅ SUCCESS PATH ONLY
+            # SUCCESS PATH ONLY
             distance = route.get("distance_km")
             duration = route.get("duration_min")
 
-            # 🔒 Defensive check (still good)
+            # Defensive check (still good)
             if distance is None or duration is None:
                 route_failed = True
 
@@ -123,7 +122,7 @@ def map_enrichment_node(state: BajaState):
                 segments.append(error_data)
                 continue
 
-            # ✅ AGGREGATION
+            # AGGREGATION
             total_distance += distance
             total_duration += duration
 

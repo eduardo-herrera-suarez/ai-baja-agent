@@ -15,7 +15,7 @@ LOCATIONS = {
 MAX_DISTANCE_KM = 150  # 🔥 constraint
 
 
-# 🌍 Haversine distance (no API needed)
+# Haversine distance (no API needed)
 def haversine(coord1, coord2):
     lon1, lat1 = coord1
     lon2, lat2 = coord2
@@ -47,22 +47,22 @@ def travel_validator_node(state: BajaState):
 
     travel = state.get("travel", {})
 
-    # 🔴 1. Structure validation
+    # 1. Structure validation
     if not travel or not isinstance(travel, dict):
         return {"valid_travel": False}
 
     locations = extract_locations(travel)
 
-    # 🔴 2. Minimum locations
+    # 2. Minimum locations
     if len(locations) < 2:
         return {"valid_travel": False}
 
-    # 🔴 3. Unknown locations
+    # 3. Unknown locations
     for loc in locations:
         if loc not in LOCATIONS:
             return {"valid_travel": False}
 
-    # 🔴 4. Distance validation
+    # 4. Distance validation
     for i in range(len(locations) - 1):
         start = LOCATIONS[locations[i]]
         end = LOCATIONS[locations[i + 1]]
@@ -79,7 +79,7 @@ def travel_validator_node(state: BajaState):
                 }
             }
 
-    # ✅ Passed all checks
+    # Passed all checks
     return {
         "valid_travel": True
     }

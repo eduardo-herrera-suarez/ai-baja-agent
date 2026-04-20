@@ -22,7 +22,6 @@ def get_route(start_coords, end_coords):
 
     data = response.json()
 
-    # ✅ FIXED
     if "routes" not in data:
         return {
             "error": f"Invalid ORS response: {data}"

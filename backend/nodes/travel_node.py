@@ -91,7 +91,6 @@ def travel_node(state: BajaState):
 
     memory = state.get("memory", {})
 
-    # 🔥 Skip ONLY if no failure
     if memory.get("travel") and not state.get("failed_segments"):
         print("⚠️ Skipping travel (already exists)")
         return {
@@ -102,7 +101,7 @@ def travel_node(state: BajaState):
     session_id = state["session_id"]
     prefs = get_preferences(session_id)
 
-    # ✅ Limit context
+    # Limit context
     messages = state.get("messages", [])[-5:]
 
     context = "\n\n".join([
@@ -111,7 +110,7 @@ def travel_node(state: BajaState):
         if isinstance(msg, dict)
     ])
 
-    # 🔥 Replanning feedback
+    # Replanning feedback
     failed_segments = state.get("failed_segments", [])
 
     failure_context = ""

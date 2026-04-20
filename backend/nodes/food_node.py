@@ -69,12 +69,11 @@ def food_node(state: BajaState):
         print("⚠️ Skipping food (already exists)")
         return {
             **state,
-            "food": memory.get("food")  # ✅ rehydrate
+            "food": memory.get("food")  
         }
 
     travel = state.get("travel", {})
 
-    # 🔴 Guard: no travel → cannot generate food
     if not travel:
         print("⚠️ No travel found, skipping food generation")
         return state

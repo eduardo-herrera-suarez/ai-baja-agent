@@ -3,7 +3,6 @@ from backend.llm.provider import get_llm
 from backend.state.bajastate import BajaState
 import json
 
-# 🔥 Use lightweight model
 llm = get_llm("classifier")
 
 prompt = ChatPromptTemplate.from_messages([
@@ -84,7 +83,7 @@ def critic_node(state: BajaState):
         "messages": state["messages"] + [
             {
                 "role": "assistant",
-                "content": parsed  # ✅ NOT json.dumps
+                "content": parsed  
             }
         ]
     }

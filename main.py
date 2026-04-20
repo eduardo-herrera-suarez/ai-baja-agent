@@ -36,7 +36,7 @@ class ChatRequest(BaseModel):
 def chat(req: ChatRequest):
 
     # =========================
-    # 1️⃣ Load memory
+    # 1. Load memory
     # =========================
     if "plan" in req.message.lower():
         history = []
@@ -48,7 +48,7 @@ def chat(req: ChatRequest):
         memory = get_agent_state(req.session_id)
 
     # =========================
-    # 2️⃣ Append user message
+    # 2. Append user message
     # =========================
     history.append({
         "role": "user",
@@ -56,7 +56,7 @@ def chat(req: ChatRequest):
     })
 
     # =========================
-    # 3️⃣ Build state
+    # 3. Build state
     # =========================
     state = {
         "session_id": req.session_id,
@@ -66,23 +66,23 @@ def chat(req: ChatRequest):
     }
 
     # =========================
-    # 4️⃣ Call orchestrator (🔥 FIX)
+    # 4. Call orchestrator 
     # =========================
     result = agent_orchestrator(state)
 
     # =========================
-    # 5️⃣ Extract response
+    # 5. Extract response
     # =========================
     assistant_reply = result["messages"][-1]["content"]
 
     # =========================
-    # 6️⃣ Save memory (🔥 FIX: BEFORE return)
+    # 6. Save memory 
     # =========================
     save_message(req.session_id, "user", req.message)
     save_message(req.session_id, "assistant", str(assistant_reply))
 
     # =========================
-    # 7️⃣ Return response
+    # 7. Return response
     # =========================
     if isinstance(assistant_reply, dict):
         return {
