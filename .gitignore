@@ -194,3 +194,6 @@ temp/
 NOTES.md
 TODO.local.md
 scratch/
+
+baja_env/
+agent_runner.py

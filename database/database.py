@@ -32,7 +32,6 @@ def init_db():
     )
     """)
 
-    # 🔥 ADD THIS
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS agent_state (
         session_id TEXT PRIMARY KEY,
