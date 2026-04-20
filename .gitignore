@@ -1,0 +1,196 @@
+# =============================================================================
+# AI Baja Agent — .gitignore
+# Python 3.11 + FastAPI + LangGraph + React/Vite + Docker + Observability
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# pytest
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.coveragerc
+
+# mypy / type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+logs/
+
+
+# -----------------------------------------------------------------------------
+# Environment & secrets — NEVER commit these
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+secrets/
+
+
+# -----------------------------------------------------------------------------
+# FastAPI / Uvicorn
+# -----------------------------------------------------------------------------
+*.pid
+
+
+# -----------------------------------------------------------------------------
+# LangChain / LangGraph / Langfuse
+# -----------------------------------------------------------------------------
+.langchain/
+langchain.db
+langfuse_cache/
+
+
+# -----------------------------------------------------------------------------
+# React / Vite / Node
+# -----------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+frontend/build/
+dist/
+
+# Vite cache
+.vite/
+frontend/.vite/
+
+# Package manager locks — keep ONE, delete the others
+# If using npm: keep package-lock.json, ignore yarn.lock and pnpm-lock.yaml
+yarn.lock
+pnpm-lock.yaml
+
+# Editor / OS artifacts inside frontend
+frontend/.DS_Store
+frontend/Thumbs.db
+
+
+# -----------------------------------------------------------------------------
+# Docker
+# -----------------------------------------------------------------------------
+# Don't ignore docker-compose files — those are part of the project
+# Ignore local override files used for dev customization
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Docker volumes dumped locally
+docker/volumes/
+docker/data/
+
+
+# -----------------------------------------------------------------------------
+# Observability stack — local data directories
+# -----------------------------------------------------------------------------
+# Prometheus data
+prometheus/data/
+docker/prometheus/data/
+
+# Grafana data
+grafana/data/
+docker/grafana/data/
+
+# Loki data
+loki/data/
+docker/loki/data/
+
+# Tempo data
+tempo/data/
+docker/tempo/data/
+
+
+# -----------------------------------------------------------------------------
+# OS
+# -----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+
+
+# -----------------------------------------------------------------------------
+# Editors & IDEs
+# -----------------------------------------------------------------------------
+# VS Code — keep settings.json if your team shares config, ignore the rest
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.history/
+
+# JetBrains (PyCharm, WebStorm)
+.idea/
+*.iml
+*.iws
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+
+
+# -----------------------------------------------------------------------------
+# Misc
+# -----------------------------------------------------------------------------
+# Test artifacts
+test_output/
+tmp/
+temp/
+
+# Screenshots / recordings (keep docs/screenshots intentionally committed)
+*.mp4
+*.mov
+
+# Local notes you don't want public
+NOTES.md
+TODO.local.md
+scratch/
