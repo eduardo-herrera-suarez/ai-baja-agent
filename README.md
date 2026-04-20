@@ -123,7 +123,7 @@ All nodes read from and write to a single typed `BajaState` object (`state/bajas
 | API server | FastAPI + Uvicorn |
 | Agent framework | LangGraph + LangChain |
 | LLM — primary | Groq (`llama-3.1-8b-instant`) |
-| LLM — fallback | Google Gemini |
+| LLM — fallback | Google Gemini (`gemini-2.5-flash`) |
 | Web search | Tavily |
 | Map routing | OpenRouteService (ORS) |
 | Observability | Langfuse (US cloud) |
@@ -147,6 +147,7 @@ ai-baja-agent/
 │   └── orchestrator.py          # LangGraph StateGraph definition
 ├── app/
 │   ├── agent.py                 # Agent entry point / runner
+│   ├── config.py                # Settings loaded from .env
 │   └── routes.py                # FastAPI route handlers
 ├── database/
 │   └── database.py              # Session / memory persistence
