@@ -147,7 +147,6 @@ ai-baja-agent/
 │   └── orchestrator.py          # LangGraph StateGraph definition
 ├── app/
 │   ├── agent.py                 # Agent entry point / runner
-│   ├── config.py                # Settings loaded from .env
 │   └── routes.py                # FastAPI route handlers
 ├── database/
 │   └── database.py              # Session / memory persistence
@@ -184,6 +183,7 @@ ai-baja-agent/
 │   └── screenshots/             # UI and Langfuse screenshots
 ├── .env.example
 ├── .gitignore
+├── main.py                      # Main
 ├── requirements.txt
 └── README.md
 ```

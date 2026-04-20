@@ -44,10 +44,10 @@ def get_llm(task: str = "default"):
         )
 
 def get_llm2(task: str = "default"):
-    provider = os.getenv("LLM_PROVIDER", "gemini")  # 🔥 default to free
+    provider = os.getenv("LLM_PROVIDER", "gemini")   
 
     # ========================
-    # 🟣 GROQ
+    # GROQ
     # ========================
     if provider == "groq":
         if task == "travel":
@@ -62,7 +62,7 @@ def get_llm2(task: str = "default"):
         )
 
     # ========================
-    # 🔵 GEMINI (Google AI Studio)
+    # GEMINI (Google AI Studio)
     # ========================
     elif provider == "gemini":
 

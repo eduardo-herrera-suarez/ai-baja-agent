@@ -78,14 +78,14 @@ def build_graph():
     builder.add_edge("FoodNode", "BudgetNode")
     builder.add_edge("BudgetNode", "FinalCompilerNode")
 
-    # 🔥 Confidence → Conditional Critic (ONLY path after compiler)
+    # Confidence → Conditional Critic (ONLY path after compiler)
     builder.add_edge("FinalCompilerNode", "ConfidenceNode")
 
     builder.add_conditional_edges(
         "MapEnrichmentNode",
         route_replanner,
         {
-            "replan": "TravelNode",   # 🔥 LOOP BACK
+            "replan": "TravelNode",    
             "continue": "FoodNode"
         }
     )
